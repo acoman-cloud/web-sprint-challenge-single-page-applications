@@ -7,7 +7,7 @@ import * as yup from 'yup';
 
 import Home from './components/Home';
 import PizzaForm from './components/PizzaForm';
-import Pizza from './components/Pizza'
+import Pizza from './components/pizza'
 
 const initialFormValues = {
   name: '',

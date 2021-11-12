@@ -11,7 +11,7 @@ export default function Home(){
 	return (
 		<div>
 		<img src='../Assets/Pizza.jpg' alt='delicious pizza' /> {/*pathing sucks */}
-		<button onClick={routeToOrderForm}>Pizza?</button>
+		<button id='pizza?' onClick={routeToOrderForm}>Pizza?</button>
 		</div>
 	)
 }

@@ -100,7 +100,7 @@ export default function PizzaForm({ submit, update, values, disabled, errors }){
           		<Link to='/pizza/order'>
 				  <button 
 				  	id='order-button' 
-					disabled={!values.name || !values.size}>submit</button>
+					disabled={!values.name || !values.size}>Add to order</button>
 				</Link>
        		</div>
 		</form>

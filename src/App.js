@@ -26,7 +26,6 @@ const initialFormErrors = {
 const initialPizza = []
 const initialDisabled = true
 
-
 const App = () => {
   const [pizzas, setPizzas] = useState(initialPizza)
   const [formValues, setFormValues] = useState(initialFormValues)
@@ -51,7 +50,7 @@ const App = () => {
     }
     axios.post('https://reqres.in/api/orders', newPizzas)
       .then(esp=>{
-        setPizzas([esp.data, ...pizzas])
+        setPizzas(esp.data)
       })
       .catch(err=>console.error(err))
       .finally(()=>setFormValues(initialFormValues));
@@ -80,7 +79,7 @@ const App = () => {
 
       <Switch>
         <Route path='/pizza/order'>
-              <Pizza details={pizzas} />
+              <Pizza details={formValues} />
         </Route>
         <Route path='/pizza'>
           <PizzaForm
@@ -95,6 +94,7 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
+      {console.log(pizzas)}
     </div>
   );
 };

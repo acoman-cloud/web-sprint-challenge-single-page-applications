@@ -92,10 +92,16 @@ export default function PizzaForm({ submit, update, values, disabled, errors }){
 				<textarea
 					name='specialInst'
 					id='special-text'
+					onChange={onChange}
+					value={values.specialInst}
 				/>
 			</label>
 			<div className='submit'>
-          		<Link to='/pizza/order'><button id='order-button' disabled={!values.name || !values.size}>submit</button></Link>
+          		<Link to='/pizza/order'>
+				  <button 
+				  	id='order-button' 
+					disabled={!values.name || !values.size}>submit</button>
+				</Link>
        		</div>
 		</form>
 	);

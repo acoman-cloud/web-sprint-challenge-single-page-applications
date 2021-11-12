@@ -79,27 +79,21 @@ const App = () => {
       </nav>
 
       <Switch>
-      <Route path='/pizza/order'>
-        {
-        pizzas.map(pizza=>{
-          return (
-            <Pizza details={pizza} />
-          )
-        })
-      }
-      </Route>
-      <Route path='/pizza'>
-        <PizzaForm
-        submit={submitForm}
-        update={updateForm}
-        values={formValues}
-        disabled={disabled}
-        errors={formErrors}
-      />
-      </Route>
-      <Route path='/'>
-        <Home />
-      </Route>
+        <Route path='/pizza/order'>
+              <Pizza details={pizzas} />
+        </Route>
+        <Route path='/pizza'>
+          <PizzaForm
+            submit={submitForm}
+            update={updateForm}
+            values={formValues}
+            disabled={disabled}
+            errors={formErrors}
+          />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
       </Switch>
     </div>
   );

@@ -14,6 +14,9 @@ const formSchema = yup.object().shape({
 	topping3: yup.boolean(),
 	topping4: yup.boolean(),
 	topping5: yup.boolean(),
+	specialInst: yup
+		.string()
+		.trim()
 })
 
 export default formSchema;

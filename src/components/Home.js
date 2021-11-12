@@ -14,4 +14,5 @@ export default function Home(){
 		<button id='pizza?' onClick={routeToOrderForm}>Pizza?</button>
 		</div>
 	)
+	
 }

@@ -1,13 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-export default function PizzaForm({ submit, update, values }){
+export default function PizzaForm({ submit, update, values, disabled, errors }){
 	
 	const onChange = evt=>{
-		console.log(evt.target)
-		const name = evt.target.name;
-		const { value } = evt.target;
-		update(name, value)
+		const {name, value, checked, type} = evt.target;
+		const realValue = type === 'checkbox' ? checked : value;
+		update(name, realValue)
 	}
 
 	const onSubmit =evt=>{
@@ -16,14 +15,18 @@ export default function PizzaForm({ submit, update, values }){
 	}
 
 	return (
-		<form id='pizza-form'>
+		<form id='pizza-form' onSubmit={onSubmit}>
+			<div className='errors'>
+          		<div>{errors.name}</div>
+          		<div>{errors.size}</div>
+        	</div>
 			<label><h2>Name of order</h2>
 				<input
 					type='text'
 					name='name'
 					id='name-input'
 					value={values.name}
-					oneChange={onChange}
+					onChange={onChange}
 					maxLength='25'
 				/>
 			</label><br />
@@ -46,31 +49,41 @@ export default function PizzaForm({ submit, update, values }){
 					<label>Pepperoni
 						<input
 							type='checkbox'
-							name='pepperoni'
+							name='topping1'
+							onChange={onChange}
+							checked={values.topping1}
 						/>
 					</label>
 					<label>Sausage
 						<input
 							type='checkbox'
-							name='sausage'
+							name='topping2'
+							onChange={onChange}
+							checked={values.topping2}
 						/>
 					</label>
 					<label>Pineapple
 						<input
 							type='checkbox'
-							name='pineapple'
+							name='topping3'
+							onChange={onChange}
+							checked={values.topping3}
 						/>
 					</label>
 					<label>Bacon
 						<input
 							type='checkbox'
-							name='bacon'
+							name='topping4'
+							onChange={onChange}
+							checked={values.topping4}
 						/>
 					</label>
 					<label>Hot stuff
 						<input
 							type='checkbox'
-							name='hotstuff'
+							name='topping5'
+							onChange={onChange}
+							checked={values.topping5}
 						/>
 					</label>
 				</div>
@@ -82,7 +95,7 @@ export default function PizzaForm({ submit, update, values }){
 				/>
 			</label>
 			<div className='submit'>
-          		<button disabled={!values.name || !values.size}>submit</button>
+          		<Link to='/pizza/order'><button id='order-button' disabled={!values.name || !values.size}>submit</button></Link>
        		</div>
 		</form>
 	);

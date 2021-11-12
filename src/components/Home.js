@@ -6,11 +6,11 @@ export default function Home(){
 	const history = useHistory();
 
 	const routeToOrderForm =()=>{
-		history.push('/PizzaForm');
+		history.push('/pizza');
 	}
 	return (
 		<div>
-		<img src='/Assets/Pizza.jpg' alt='delicious pizza' />
+		<img src='/Assets/Pizza.jpg' alt='delicious pizza' /> {/*pathing sucks */}
 		<button onClick={routeToOrderForm}>Pizza?</button>
 		</div>
 	)

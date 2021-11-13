@@ -7,7 +7,7 @@ import * as yup from 'yup';
 
 import Home from './components/Home';
 import PizzaForm from './components/PizzaForm';
-import Pizza from './components/pizza'
+import Pizza from './components/Pizza'
 
 const initialFormValues = {
   name: '',
@@ -23,7 +23,7 @@ const initialFormErrors = {
   name: '',
   size: '',
 }
-const initialPizza = []
+const initialPizza = {}
 const initialDisabled = true
 
 const App = () => {
